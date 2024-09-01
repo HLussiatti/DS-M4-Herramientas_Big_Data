@@ -24,10 +24,15 @@ Este proceso se ejecuta a través del archivo Ejercicio1.sh
 
 # EJERCICIO 2:
 1. Ejecuto el contendor de la versión 2 que contiene solo Hadoop y Hive para el ejercicio 2.
+``` sudo docker-compose -f docker-compose-v2.yml up -d ```
 
+2. Dar permisos a Ejercicio1.sh: 
+``` chmod u+x Ejercicio2.sh ```
+3. Ejercutar: 
+``` ./Ejercicio2.sh ``
 
+# EJERCICIO 3:
 
-``` sudo docker-compose -f docker-compose-v1.yml up -d ```
 
 
 # Para modificiaciones en el Repo.
