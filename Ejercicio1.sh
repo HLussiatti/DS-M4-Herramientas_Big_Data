@@ -33,7 +33,7 @@ sudo docker cp Datasets/personal.csv namenode:/home/Datasets/personal.csv
 
 # Ejecutar comandos dentro del contenedor "namenode"
 sudo docker exec -it namenode bash -c " 
-    # Borro la carpeta si exite (por si hago cambios) y luego la creo una carpeta en HDFS
+    # Borro la carpeta si exite (por si hago cambios) y luego la creo en HDFS
     hdfs dfs -rm -R /data
     hdfs dfs -mkdir -p /data
 
