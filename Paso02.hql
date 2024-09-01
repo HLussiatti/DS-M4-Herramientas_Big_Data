@@ -1,5 +1,7 @@
+DROP DATABASE IF EXITS integrador;
 CREATE DATABASE IF NOT EXISTS integrador;
 USE integrador;
+
 DROP TABLE IF EXISTS compra;
 CREATE EXTERNAL TABLE IF NOT EXISTS compra (
   IdCompra				INTEGER,
