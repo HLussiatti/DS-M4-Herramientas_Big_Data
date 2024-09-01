@@ -11,9 +11,8 @@ sudo docker exec -it namenode bash -c "
 
 "
 echo "Archivos .csv copiados a HDFS en /user/hadoop/data2/" 
+exit
 
-# Salgo del Docker de Hadoop
-sudo docker exec -it namenode bash -c "exit"
 
 # Copio el hql al contenedor
 sudo docker cp Paso03.hql hive-server:/opt/hive/scripts/Paso03.hql
@@ -23,4 +22,4 @@ sudo docker exec -it hive-server bash
 # Ejecuto el hql desde el contenedor
 hive -f /opt/hive/scripts/Paso03.hql
 # Salgo del contenedor
-sudo docker exec -it hive-server bash -c "exit"
+exit
