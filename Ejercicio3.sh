@@ -4,6 +4,8 @@ sudo docker exec -it hive-server bash -c "
 cd hive
 cd scripts
 rm Paso03.hql
+cd ..
+cd ..
 exit
 "
 
