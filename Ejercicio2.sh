@@ -5,4 +5,4 @@ sudo docker exec -it hive-server bash
 # Ejecuto el hql desde el contenedor
 hive -f /opt/hive/scripts/Paso02.hql
 # Salgo del contenedor
-exit
+hive -e "exit;"
