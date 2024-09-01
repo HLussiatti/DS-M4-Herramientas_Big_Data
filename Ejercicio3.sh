@@ -8,18 +8,17 @@ sudo docker exec -it namenode bash -c "
 
     # Mover archivos .csv desde /home/Datasets a la carpeta HDFS /user/hadoop/data
     hdfs dfs -put /home/Datasets/* /data2/ 
+
+    exit
 "
 echo "Archivos .csv copiados a HDFS en /user/hadoop/data2/" 
-
 
 # Copio el hql al contenedor
 sudo docker cp Paso03.hql hive-server:/opt/hive/scripts/Paso03.hql
 
 # Ejecuto el contenedor
 sudo docker exec -it hive-server bash
-
 # Ejecuto el hql desde el contenedor
 hive -f /opt/hive/scripts/Paso03.hql
-
 # Salgo del contenedor
 sudo docker exec -it hive-server bash -c "exit"

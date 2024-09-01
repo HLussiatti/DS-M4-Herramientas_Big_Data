@@ -32,6 +32,12 @@ Este proceso se ejecuta a través del archivo Ejercicio1.sh
 ``` ./Ejercicio2.sh ``
 
 4. Agregué un EXIT; al final del Paso02.hql para salir de HIVE.
+5. PARA VERIFICAR:
+``` 
+SHOW DATABASES;
+USE integrador;
+SHOW TABLES;
+SELECT COUNT(*) FROM calendario;
 
 # EJERCICIO 3:
 1. Copio los datos en data2 del HDFS
@@ -53,7 +59,7 @@ git push
 ```
 Bajo las modificaciones al repo alojado en el Docker.
 ```
-    git reset --hard
+git reset --hard
 git pull
 ```
 
