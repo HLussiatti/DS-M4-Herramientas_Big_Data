@@ -3,7 +3,7 @@
 sudo docker exec -it hive-server bash -c "
 cd hive
 cd scripts
-rm Paso03hql
+rm Paso03.hql
 exit
 "
 
