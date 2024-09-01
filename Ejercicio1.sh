@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Copiar archivos desde el host al contenedor "namenode"
-
 sudo docker cp Datasets/calendario/Calendario.csv namenode:/home/Datasets/Calendario.csv
 sudo docker cp Datasets/canaldeventa/CanalDeVenta.csv namenode:/home/Datasets/CanalDeVenta.csv
 sudo docker cp Datasets/cliente/Cliente.csv namenode:/home/Datasets/Cliente.csv
