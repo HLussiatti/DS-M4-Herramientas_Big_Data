@@ -1,6 +1,6 @@
 
 # Primero borro si ya existe para cuando hago cambios
-sudo docker exec -it hive-server menode bash -c "
+sudo docker exec -it hive-server bash -c "
 cd hive
 cd scripts
 rm Paso03hql
