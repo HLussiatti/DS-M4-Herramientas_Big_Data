@@ -338,6 +338,182 @@ LOCATION '/user/instructor/data/bikeshare/trips_part/';
 
 -- Ejecutar de 1 a 12
 INSERT INTO trips_part
+PARTITION(month=1)
+SELECT bikeid,
+	checkout_time,
+	duration_minutes,
+	end_station_id,
+	end_station_name,
+	start_station_id,
+	start_station_name,
+	start_time,
+	subscriber_type,
+	trip_id,
+	year_modif
+FROM trips_ok
+WHERE month_modif = 1;
+
+INSERT INTO trips_part
+PARTITION(month=2)
+SELECT bikeid,
+	checkout_time,
+	duration_minutes,
+	end_station_id,
+	end_station_name,
+	start_station_id,
+	start_station_name,
+	start_time,
+	subscriber_type,
+	trip_id,
+	year_modif
+FROM trips_ok
+WHERE month_modif = 2;
+
+INSERT INTO trips_part
+PARTITION(month=3)
+SELECT bikeid,
+	checkout_time,
+	duration_minutes,
+	end_station_id,
+	end_station_name,
+	start_station_id,
+	start_station_name,
+	start_time,
+	subscriber_type,
+	trip_id,
+	year_modif
+FROM trips_ok
+WHERE month_modif = 3;
+
+INSERT INTO trips_part
+PARTITION(month=4)
+SELECT bikeid,
+	checkout_time,
+	duration_minutes,
+	end_station_id,
+	end_station_name,
+	start_station_id,
+	start_station_name,
+	start_time,
+	subscriber_type,
+	trip_id,
+	year_modif
+FROM trips_ok
+WHERE month_modif = 4;
+
+INSERT INTO trips_part
+PARTITION(month=5)
+SELECT bikeid,
+	checkout_time,
+	duration_minutes,
+	end_station_id,
+	end_station_name,
+	start_station_id,
+	start_station_name,
+	start_time,
+	subscriber_type,
+	trip_id,
+	year_modif
+FROM trips_ok
+WHERE month_modif = 5;
+
+INSERT INTO trips_part
+PARTITION(month=6)
+SELECT bikeid,
+	checkout_time,
+	duration_minutes,
+	end_station_id,
+	end_station_name,
+	start_station_id,
+	start_station_name,
+	start_time,
+	subscriber_type,
+	trip_id,
+	year_modif
+FROM trips_ok
+WHERE month_modif = 6;
+
+INSERT INTO trips_part
+PARTITION(month=7)
+SELECT bikeid,
+	checkout_time,
+	duration_minutes,
+	end_station_id,
+	end_station_name,
+	start_station_id,
+	start_station_name,
+	start_time,
+	subscriber_type,
+	trip_id,
+	year_modif
+FROM trips_ok
+WHERE month_modif = 7;
+
+INSERT INTO trips_part
+PARTITION(month=8)
+SELECT bikeid,
+	checkout_time,
+	duration_minutes,
+	end_station_id,
+	end_station_name,
+	start_station_id,
+	start_station_name,
+	start_time,
+	subscriber_type,
+	trip_id,
+	year_modif
+FROM trips_ok
+WHERE month_modif = 8;
+
+INSERT INTO trips_part
+PARTITION(month=9)
+SELECT bikeid,
+	checkout_time,
+	duration_minutes,
+	end_station_id,
+	end_station_name,
+	start_station_id,
+	start_station_name,
+	start_time,
+	subscriber_type,
+	trip_id,
+	year_modif
+FROM trips_ok
+WHERE month_modif = 9;
+
+INSERT INTO trips_part
+PARTITION(month=10)
+SELECT bikeid,
+	checkout_time,
+	duration_minutes,
+	end_station_id,
+	end_station_name,
+	start_station_id,
+	start_station_name,
+	start_time,
+	subscriber_type,
+	trip_id,
+	year_modif
+FROM trips_ok
+WHERE month_modif = 10;
+
+INSERT INTO trips_part
+PARTITION(month=11)
+SELECT bikeid,
+	checkout_time,
+	duration_minutes,
+	end_station_id,
+	end_station_name,
+	start_station_id,
+	start_station_name,
+	start_time,
+	subscriber_type,
+	trip_id,
+	year_modif
+FROM trips_ok
+WHERE month_modif = 1;
+
+INSERT INTO trips_part
 PARTITION(month=12)
 SELECT bikeid,
 	checkout_time,

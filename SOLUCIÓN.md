@@ -31,8 +31,17 @@ Este proceso se ejecuta a través del archivo Ejercicio1.sh
 3. Ejercutar: 
 ``` ./Ejercicio2.sh ``
 
-# EJERCICIO 3:
+4. Agregué un EXIT; al final del Paso02.hql para salir de HIVE.
 
+# EJERCICIO 3:
+1. Copio los datos en data2 del HDFS
+
+2. Modifico el Paso03.hql (al final) para la consulta de agregación x12
+
+2. Dar permisos a Ejercicio1.sh: 
+``` chmod u+x Ejercicio3.sh ```
+3. Ejercutar: 
+``` ./Ejercicio3.sh ``
 
 
 # Para modificiaciones en el Repo.
@@ -44,7 +53,7 @@ git push
 ```
 Bajo las modificaciones al repo alojado en el Docker.
 ```
-git reset --hard
+    git reset --hard
 git pull
 ```
 
