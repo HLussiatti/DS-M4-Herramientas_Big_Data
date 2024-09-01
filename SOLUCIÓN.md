@@ -7,8 +7,48 @@
 
 
 # EJERCICIO 1:
-Dento de la carpeta busco el listado de archivos:
+1. Dento de la carpeta busco el listado de archivos:
 ``` sudo docker ls -la ```
-Ejecuto el contendor de la versión 1 que contiene solo Hadoop para el ejercicio 1.
+
+2. Ejecuto el contendor de la versión 1 que contiene solo Hadoop para el ejercicio 1.
 ``` sudo docker-compose -f docker-compose-v1.yml up -d ```
 
+3. Reubique todos los csv que estaban dentro de cada carpeta (menos data_nvo), dentro de la carpeta Datasets.
+
+4. El ejercicio pide copiar los archivos que estan ubicados en Datasets dentro del contenedor "namenode":
+Este proceso se ejecuta a través del archivo Ejercicio1.sh
+
+5. Dar permisos a Ejercicio1.sh: 
+``` chmod u+x Ejercicio1.sh ```
+6. Ejercutar: 
+``` ./Ejercicio1.sh ```
+
+
+# EJERCICIO 2:
+1. Ejecuto el contendor de la versión 2 que contiene solo Hadoop y Hive para el ejercicio 2.
+
+
+
+``` sudo docker-compose -f docker-compose-v1.yml up -d ```
+
+
+# Para modificiaciones en el Repo.
+Actualizo el repo
+```
+git add .
+git commit -m "mensaje"
+git push
+```
+Bajo las modificaciones al repo alojado en el Docker.
+```
+git reset --hard
+git pull
+```
+
+
+
+
+
+
+
+    
