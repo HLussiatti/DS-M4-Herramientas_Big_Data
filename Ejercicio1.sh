@@ -3,6 +3,8 @@
 sudo docker exec -it namenode bash -c "
 cd home
 mkdir Datasets
+cd Datasets
+mkdir data_nvo
 exit
 "
 
@@ -23,11 +25,14 @@ sudo docker cp Datasets/data_nvo/Cliente.csv namenode:/home/Datasets/data_nvo/Cl
 sudo docker cp Datasets/data_nvo/Empleado.csv namenode:/home/Datasets/data_nvo/Empleado.csv
 sudo docker cp Datasets/data_nvo/Producto.csv namenode:/home/Datasets/data_nvo/Producto.csv
 
-sudo docker cp Datasets/. namenode:/home/Datasets
+sudo docker cp Datasets/iris.csv namenode:/home/Datasets/iris.csv
+sudo docker cp Datasets/raw-flight-data.csv namenode:/home/Datasets/raw-flight-data.csv
+sudo docker cp Datasets/personal.csv namenode:/home/Datasets/personal.csv
+
 
 # Ejecutar comandos dentro del contenedor "namenode"
 sudo docker exec -it namenode bash -c " 
-    # Crear una carpeta en HDFS
+    # Borro la carpeta si exite (por si hago cambios) y luego la creo una carpeta en HDFS
     hdfs dfs -rm -R /data
     hdfs dfs -mkdir -p /data
 
