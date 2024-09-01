@@ -1,6 +1,7 @@
 #!/bin/bash
-
+# Primero borro por si ya existe e hice cambios
 sudo docker exec -it namenode bash -c "
+rm -rf /home/Datasets/
 cd home
 mkdir Datasets
 cd Datasets
