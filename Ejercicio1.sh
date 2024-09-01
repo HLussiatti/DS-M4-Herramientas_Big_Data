@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Copiar archivos desde el host al contenedor "namenode"
-sudo docker cp DS-M4-Herramientas_Big_Data/Datasets/. namenode:/home/Datasets
+sudo docker cp Datasets/. namenode:/home/Datasets
 
 # Ejecutar comandos dentro del contenedor "namenode"
 sudo docker exec -it namenode bash -c 
