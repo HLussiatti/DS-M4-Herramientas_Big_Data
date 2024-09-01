@@ -44,6 +44,7 @@ sudo docker exec -it namenode bash -c "
     # Mover archivos .csv desde /home/Datasets a la carpeta HDFS /user/hadoop/data
     hdfs dfs -put /home/Datasets/* /data/ 
     
+    # Salgo del Docker de Hadoop
     exit
 "
 echo "Archivos .csv copiados a HDFS en /user/hadoop/data/" 

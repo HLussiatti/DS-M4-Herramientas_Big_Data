@@ -1,3 +1,11 @@
+# Primero borro si ya existe para cuando hago cambios
+sudo docker exec -it nahive-server menode bash -c "
+cd hive
+cd scripts
+rm Paso02hql
+exit
+"
+
 # Copio el hql al contenedor
 sudo docker cp Paso02.hql hive-server:/opt/hive/scripts/Paso02.hql
 # Ejecuto el contenedor
