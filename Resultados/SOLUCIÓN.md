@@ -21,6 +21,9 @@ Este proceso se ejecuta a través del archivo Ejercicio1.sh
 5. Ejercutar: 
 ``` ./Ejercicio1.sh ```
 
+6. Resultado:
+ 
+![Texto alternativo](Ejercicio_1_HDFS.png)
 
 # EJERCICIO 2:
 1. Ejecuto el contendor de la versión 2 que contiene solo Hadoop y Hive para el ejercicio 2.
