@@ -1,4 +1,4 @@
-DROP DATABASE IF EXITS integrador;
+DROP DATABASE IF EXISTS integrador;
 CREATE DATABASE IF NOT EXISTS integrador;
 USE integrador;
 
