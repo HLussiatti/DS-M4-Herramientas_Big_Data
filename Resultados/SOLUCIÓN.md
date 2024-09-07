@@ -69,7 +69,7 @@ SELECT COUNT(*) FROM venta;
 1. Ejecuto el contendor de la versión 3.
 ``` sudo docker-compose -f docker-compose-v3.yml up -d ```
 
-2. Modifico Paso03.hql para agregar la eliminación de la DB si existe ```DROP DATABASE IF EXISTS integrador2;``` y agregué un ```EXIT;``` al final para salir de HIVE. Modifico el Paso03.hql (al final) para la consulta de agregación x12.
+2. Modifico Paso03.hql para agregar la eliminación de la DB si existe ```DROP DATABASE IF EXISTS integrador2;``` y agregué un ```EXIT;``` al final para salir de HIVE. Arreglo la línea ```REPLACE(Salario,``` , Modifico el Paso03.hql (al final) para la consulta de agregación x12.
 
 3. Copio los datos en data2 del HDFS.
 
