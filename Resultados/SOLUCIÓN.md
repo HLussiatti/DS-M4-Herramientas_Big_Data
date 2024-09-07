@@ -18,29 +18,42 @@ Este proceso se ejecuta a través del archivo Ejercicio1.sh
 
 4. Dar permisos a Ejercicio1.sh: 
 ``` chmod u+x Ejercicio1.sh ```
+
 5. Ejercutar: 
 ``` ./Ejercicio1.sh ```
 
 6. Resultado:
- 
+
 ![Texto alternativo](Ejercicio_1_HDFS.png)
+
+
 
 # EJERCICIO 2:
 1. Ejecuto el contendor de la versión 2 que contiene solo Hadoop y Hive para el ejercicio 2.
 ``` sudo docker-compose -f docker-compose-v2.yml up -d ```
 
-2. Dar permisos a Ejercicio1.sh: 
-``` chmod u+x Ejercicio2.sh ```
-3. Ejercutar: 
-``` ./Ejercicio2.sh ``
+2. Modifico Paso02.hql para agregar la eliminación de la DB si existe ```DROP DATABASE IF EXITS integrador;``` y agregué un ```EXIT;``` al final para salir de HIVE.
 
-4. Agregué un EXIT; al final del Paso02.hql para salir de HIVE.
-5. PARA VERIFICAR:
+3. Dar permisos a Ejercicio1.sh: 
+``` chmod u+x Ejercicio2.sh ```
+
+4. Ejercutar: 
+``` ./Ejercicio2.sh ```
+
+5. Resultado:
+
+
+
+
+6. PARA VERIFICAR:
 ``` 
 SHOW DATABASES;
 USE integrador;
 SHOW TABLES;
 SELECT COUNT(*) FROM calendario;
+```
+
+
 
 # EJERCICIO 3:
 1. Copio los datos en data2 del HDFS
