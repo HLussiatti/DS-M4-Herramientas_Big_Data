@@ -5,7 +5,6 @@ cd scripts
 rm Paso02.hql
 cd ..
 cd ..
-exit
 "
 
 # Copio el hql al contenedor
