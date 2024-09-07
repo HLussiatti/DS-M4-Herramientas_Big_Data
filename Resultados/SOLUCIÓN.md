@@ -24,7 +24,7 @@ Este proceso se ejecuta a través del archivo Ejercicio1.sh
 
 6. Resultado:
 
-![Texto alternativo](Ejercicio_1_HDFS.png)
+![](Ejercicio_1_HDFS.png)
 
 
 
@@ -42,28 +42,69 @@ Este proceso se ejecuta a través del archivo Ejercicio1.sh
 
 5. Resultado:
 
+![](Ejercicio_2_HDFS.png)
 
-
+![](Ejercicio_2_SQL_1.png)
 
 6. PARA VERIFICAR:
 ``` 
+sudo docker exec -it hive-server bash
+hive
 SHOW DATABASES;
 USE integrador;
 SHOW TABLES;
-SELECT COUNT(*) FROM calendario;
+SELECT COUNT(*) FROM venta;
 ```
+
+
+![](Ejercicio_2_SQL_2.png)
+
+
+
+
 
 
 
 # EJERCICIO 3:
-1. Copio los datos en data2 del HDFS
+1. Ejecuto el contendor de la versión 3.
+``` sudo docker-compose -f docker-compose-v3.yml up -d ```
 
-2. Modifico el Paso03.hql (al final) para la consulta de agregación x12
+2. Modifico Paso03.hql para agregar la eliminación de la DB si existe ```DROP DATABASE IF EXISTS integrador2;``` y agregué un ```EXIT;``` al final para salir de HIVE. Modifico el Paso03.hql (al final) para la consulta de agregación x12.
 
-2. Dar permisos a Ejercicio1.sh: 
+3. Copio los datos en data2 del HDFS.
+
+4. Dar permisos a Ejercicio3.sh: 
 ``` chmod u+x Ejercicio3.sh ```
+
 3. Ejercutar: 
-``` ./Ejercicio3.sh ``
+``` ./Ejercicio3.sh ```
+
+
+
+
+# EJERCICIO 4:
+1. Trabajo con la v2 del docker-compose.
+
+2. Dar permisos a Ejercicio4.sh: 
+``` chmod u+x Ejercicio4.sh ```
+
+3. Ejercutar: 
+``` ./Ejercicio4.sh ```
+
+2. Guardo los resultados de la consulta antes de la modificación del índice.
+```SELECT idsucursal, sum(precio * cantidad) FROM venta GROUP BY idsucursal;```
+
+3. Modifico el índie:
+
+```
+CREATE INDEX index_venta_sucursal ON TABLE venta(IdSucursal) AS 'org.apache.hadoop.hive.ql.index.compact.CompactIndexHandler' WITH DEFERRED REBUILD;
+ALTER INDEX index_venta_sucursal ON venta [PARTITION partition_spec] REBUILD; 
+```
+
+4. Verifico la modificación en los tiempos de la consulta original. Resultados:
+![](Ejercicio_4_SQL.png)
+
+
 
 
 # Para modificiaciones en el Repo.

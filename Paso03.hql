@@ -1,4 +1,4 @@
-DROP DATABASE IF EXITS integrador2;
+DROP DATABASE IF EXISTS integrador2;
 CREATE DATABASE IF NOT EXISTS integrador2;
 USE integrador2;
 
@@ -529,3 +529,5 @@ SELECT bikeid,
 	year_modif
 FROM trips_ok
 WHERE month_modif = 12;
+
+EXIT;

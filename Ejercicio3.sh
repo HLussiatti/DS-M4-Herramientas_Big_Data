@@ -6,7 +6,6 @@ cd scripts
 rm Paso03.hql
 cd ..
 cd ..
-exit
 "
 
 # el Paso03.hql necesita sacar los datos de una carpeta /data2/ del HDFS
@@ -24,8 +23,5 @@ echo "Archivos .csv copiados a HDFS en /user/hadoop/data2/"
 sudo docker cp Paso03.hql hive-server:/opt/hive/scripts/Paso03.hql
 
 # Ejecuto el contenedor
-sudo docker exec -it hive-server bash
-# Ejecuto el hql desde el contenedor
-hive -f /opt/hive/scripts/Paso03.hql
-# Salgo del contenedor
-sudo docker exec -it namenode bash -c "exit"
+sudo docker exec -it hive-server bash -c "hive -f /opt/hive/scripts/Paso03.hql"
+
