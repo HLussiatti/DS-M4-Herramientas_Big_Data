@@ -1,4 +1,4 @@
-#!/bin/bash
+
 # Primero borro por si ya existe e hice cambios
 sudo docker exec -it namenode bash -c "
 rm -rf /home/Datasets/
@@ -9,7 +9,7 @@ mkdir data_nvo
 exit
 "
 
-# Copiar archivos desde el host al contenedor "namenode"
+# Copiar archivos desde el host al contenedor "namenode" - La ubicación es importante porque la Consulta SQL del Ejercicio 2 lee directo de cada carpeta.
 sudo docker cp Datasets/. namenode:/home/Datasets/
 # sudo docker cp Datasets/calendario/Calendario.csv namenode:/home/Datasets/calendario/Calendario.csv
 # sudo docker cp Datasets/canaldeventa/CanalDeVenta.csv namenode:/home/Datasets/canaldeventa/CanalDeVenta.csv

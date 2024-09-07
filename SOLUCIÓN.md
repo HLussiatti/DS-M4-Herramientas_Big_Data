@@ -8,7 +8,7 @@
 
 # EJERCICIO 1:
 1. Dento de la carpeta busco el listado de archivos:
-``` sudo docker ls -la ```
+```ls -la ```
 
 2. Ejecuto el contendor de la versión 1 que contiene solo Hadoop para el ejercicio 1.
 ``` sudo docker-compose -f docker-compose-v1.yml up -d ```
