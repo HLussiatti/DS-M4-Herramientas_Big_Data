@@ -94,8 +94,10 @@ SELECT COUNT(*) FROM venta;
 3. Ejercutar: 
 ``` ./Ejercicio4.sh ```
 
-2. Guardo los resultados de la consulta antes de la modificación del índice.
+2. Guardo los resultados de la consulta antes de la modificación del índice (21.37 segundos).
 ```SELECT idsucursal, sum(precio * cantidad) FROM venta GROUP BY idsucursal;```
+
+![](Ejercicio_4_SQL_1.png)
 
 3. Modifico el índie:
 
@@ -104,8 +106,12 @@ CREATE INDEX index_venta_sucursal ON TABLE venta(IdSucursal) AS 'org.apache.hado
 ALTER INDEX index_venta_sucursal ON venta [PARTITION partition_spec] REBUILD; 
 ```
 
-4. Verifico la modificación en los tiempos de la consulta original. Resultados:
-![](Ejercicio_4_SQL.png)
+4. Verifico la modificación en los tiempos de la consulta original. Resultados  (3.461 segundos):
+
+![](Ejercicio_4_SQL_2.png)
+
+
+
 
 
 
