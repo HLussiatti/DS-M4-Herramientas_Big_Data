@@ -55,6 +55,8 @@ sudo docker cp Mongo/mongo-hadoop-spark-2.0.2.jar namenode:/tmp/udfs/mongo-hadoo
 
 # Los muevo dentro del HDFS
 sudo docker exec -it namenode bash -c "
+hdfs dfs -rm -R /tmp/udfs/
+hdfs dfs -mkdir -p /tmp/udfs/
 hdfs dfs -put /tmp/udfs/* /tmp/udfs
 "
 # Copiar archivo HQL y ejecutar Hive
