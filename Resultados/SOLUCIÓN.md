@@ -129,7 +129,8 @@ ALTER INDEX index_venta_sucursal ON venta [PARTITION partition_spec] REBUILD;
 
 2. Hay que modificar la idrección en iris.hql.
 
-3. Tengo que modificar la versión de mongo del contenedor.
+3. Tengo que modificar la versión de mongo del contenedor
+``` image: mongo:4.0.4.```
 
 3. Resultado carga Manual de personal:
 
