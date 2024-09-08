@@ -131,18 +131,22 @@ ALTER INDEX index_venta_sucursal ON venta [PARTITION partition_spec] REBUILD;
 3. Ejecuto Limpieza.sh y vuelvo a cargar
 
 4. Dar permisos a Ejercicio5.sh y ejecutar:
-``` chmod u+x Ejercicio5.sh ```
-``` ./Ejercicio5.sh ```
+``` chmod u+x Ejercicio5_2.sh ```
+``` ./Ejercicio5_2.sh ```
 
 5. Resultado importación de json:
 
-![](Ejercicio_5_HBase_1.png)
+![](Ejercicio_5_2_Mongo_1.png)
 
 
 6. Resultado carga de base en hive:
 
-![](Ejercicio_5_HBase_2.png)
+![](Ejercicio_5_2_HDFS_1.png)
 
+
+7. Resultado NO PUDE LOGRAR EJECUTAR LA CONSULTA: FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. org/apache/hadoop/hive/serde2/SerDe
+
+![](Ejercicio_5_2_Mongo_2.png)
 
 
 

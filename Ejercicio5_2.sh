@@ -23,7 +23,7 @@ mongoimport --db dataprueba --collection iris_json --file /data/iris.json --json
 # Verifico los resultados
 sudo docker exec -it mongodb bash -c "
 # Comprobar la importación de datos
-mongosh --quiet --eval '
+mongo --eval '
 use dataprueba;
 show collections;
 db.iris_csv.find().pretty();
@@ -67,12 +67,9 @@ hdfs dfs -put /tmp/udfs/* /tmp/udfs
 # Copiar archivo HQL y ejecutar Hive
 sudo docker cp iris.hql hive-server:/opt/iris.hql
 sudo docker exec -it hive-server bash -c "
-# Iniciar hive
-hive &&
-
+hiveserver2
 # Cambiar permisos del archivo HQL
 chmod 777 iris.hql &&
-
 # Ejecutar el script HQL en Hive
 hive -f iris.hql
 "
