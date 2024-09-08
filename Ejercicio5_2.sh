@@ -24,9 +24,9 @@ mongoimport --db dataprueba --collection iris_json --file /data/iris.json --json
 sudo docker exec -it mongodb bash -c "
 # Comprobar la importación de datos
 mongosh --eval '
-use dataprueba; &
-show collections(); &
-db.iris_csv.find().pretty(); &
+use dataprueba; &&
+show collections(); &&
+db.iris_csv.find().pretty(); &&
 db.iris_json.find().pretty();
 '
 "
