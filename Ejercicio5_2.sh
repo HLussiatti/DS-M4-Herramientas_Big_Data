@@ -11,6 +11,10 @@ sudo docker cp Datasets/iris.json mongodb:/data/iris.json
 
 # Ejecutar un bash shell dentro del contenedor MongoDB
 sudo docker exec -it mongodb bash -c "
+
+# Eliminar la base de datos si existe
+mongo --eval 'db.getSiblingDB(\"dataprueba\").dropDatabase()'
+
 # Importar datos en MongoDB
 mongoimport /data/iris.csv --type csv --headerline -d dataprueba -c iris_csv
 mongoimport --db dataprueba --collection iris_json --file /data/iris.json --jsonArray
@@ -33,6 +37,9 @@ sudo docker cp Mongo/mongo-hadoop-hive-2.0.2.jar hive-server:/opt/hive/lib/mongo
 sudo docker cp Mongo/mongo-hadoop-core-2.0.2.jar hive-server:/opt/hive/lib/mongo-hadoop-core-2.0.2.jar
 sudo docker cp Mongo/mongo-hadoop-spark-2.0.2.jar hive-server:/opt/hive/lib/mongo-hadoop-spark-2.0.2.jar
 sudo docker cp Mongo/mongo-java-driver-3.12.11.jar hive-server:/opt/hive/lib/mongo-java-driver-3.12.11.jar
+# Esta línea se agrega porque el script tira error de no encontrar el .jar en la ubicación esperada.
+sudo docker cp Mongo/mongo-java-driver-3.12.11.jar namenode:/home/tmp/udfs//mongo-java-driver-3.12.11.jar
+
 
 # Copiar archivo HQL y ejecutar Hive
 sudo docker cp iris.hql hive-server:/opt/iris.hql
