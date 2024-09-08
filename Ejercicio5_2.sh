@@ -29,10 +29,10 @@ mongoexport --db dataprueba --collection iris_json --fields sepal_length,sepal_w
 "
 
 # Copio los JARs que están en la carpeta Mongo a Hive Server
-sudo docker cp /Mongo/mongo-hadoop-hive-2.0.2.jar hive-server:/opt/hive/lib/mongo-hadoop-hive-2.0.2.jar
-sudo docker cp /Mongo/mongo-hadoop-core-2.0.2.jar hive-server:/opt/hive/lib/mongo-hadoop-core-2.0.2.jar
-sudo docker cp /Mongo/mongo-hadoop-spark-2.0.2.jar hive-server:/opt/hive/lib/mongo-hadoop-spark-2.0.2.jar
-sudo docker cp /Mongo/mongo-java-driver-3.12.11.jar hive-server:/opt/hive/lib/mongo-java-driver-3.12.11.jar
+sudo docker cp Mongo/mongo-hadoop-hive-2.0.2.jar hive-server:/opt/hive/lib/mongo-hadoop-hive-2.0.2.jar
+sudo docker cp Mongo/mongo-hadoop-core-2.0.2.jar hive-server:/opt/hive/lib/mongo-hadoop-core-2.0.2.jar
+sudo docker cp Mongo/mongo-hadoop-spark-2.0.2.jar hive-server:/opt/hive/lib/mongo-hadoop-spark-2.0.2.jar
+sudo docker cp Mongo/mongo-java-driver-3.12.11.jar hive-server:/opt/hive/lib/mongo-java-driver-3.12.11.jar
 
 # Copiar archivo HQL y ejecutar Hive
 sudo docker cp iris.hql hive-server:/opt/iris.hql
