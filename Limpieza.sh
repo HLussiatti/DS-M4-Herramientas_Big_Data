@@ -7,4 +7,4 @@ sudo docker volume prune
 #Elimino todas las imágenes
 sudo docker rmi -f $(sudo docker images -q)
 #Verifico espacio
-lf -lh
+df -lh

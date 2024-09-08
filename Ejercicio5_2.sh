@@ -31,7 +31,6 @@ db.iris_json.find().pretty();
 '
 "
 
-
 #Exporto los resultados
 sudo docker exec -it mongodb bash -c "
 # Exportar los datos de MongoDB

@@ -123,21 +123,23 @@ ALTER INDEX index_venta_sucursal ON venta [PARTITION partition_spec] REBUILD;
 
 
 # EJERCICIO 5.2:
-1. Dar permisos a Ejercicio5.sh y ejecutar:
+1. Hay que modificar la idrección en iris.hql.
+
+2. Tengo que modificar la versión de mongo del contenedor.
+``` image: mongo:4.0.4.```
+
+3. Ejecuto Limpieza.sh y vuelvo a cargar
+
+4. Dar permisos a Ejercicio5.sh y ejecutar:
 ``` chmod u+x Ejercicio5.sh ```
 ``` ./Ejercicio5.sh ```
 
-2. Hay que modificar la idrección en iris.hql.
-
-3. Tengo que modificar la versión de mongo del contenedor
-``` image: mongo:4.0.4.```
-
-3. Resultado carga Manual de personal:
+5. Resultado importación de json:
 
 ![](Ejercicio_5_HBase_1.png)
 
 
-4. Resultado carga csv de personal y carga tabla album:
+6. Resultado carga de base en hive:
 
 ![](Ejercicio_5_HBase_2.png)
 
