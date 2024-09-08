@@ -19,15 +19,20 @@ db.getSiblingDB(\"dataprueba\").dropDatabase();
 # Importar datos en MongoDB
 mongoimport /data/iris.csv --type csv --headerline -d dataprueba -c iris_csv
 mongoimport --db dataprueba --collection iris_json --file /data/iris.json --jsonArray 
-
+"
+# Verifico los resultados
+sudo docker exec -it mongodb bash -c "
 # Comprobar la importación de datos
 mongosh --eval '
-use dataprueba;
-show collections();
-db.iris_csv.find().pretty();
+use dataprueba; &
+show collections(); &
+db.iris_csv.find().pretty(); &
 db.iris_json.find().pretty();
 '
+"
 
+#Exporto los resultados
+sudo docker exec -it mongodb bash -c "
 # Exportar los datos de MongoDB
 mongoexport --db dataprueba --collection iris_csv --fields sepal_length,sepal_width,petal_length,petal_width,species --type=csv --out /data/iris_export.csv 
 mongoexport --db dataprueba --collection iris_json --fields sepal_length,sepal_width,petal_length,petal_width,species --type=json --out /data/iris_export.json
@@ -41,6 +46,7 @@ cd tmp
 mkdir udfs
 exit
 "
+
 # Copio los JARs que están en la carpeta Mongo a Hive Server
 sudo docker cp Mongo/mongo-hadoop-hive-2.0.2.jar hive-server:/opt/hive/lib/mongo-hadoop-hive-2.0.2.jar
 sudo docker cp Mongo/mongo-hadoop-core-2.0.2.jar hive-server:/opt/hive/lib/mongo-hadoop-core-2.0.2.jar
@@ -61,8 +67,12 @@ hdfs dfs -put /tmp/udfs/* /tmp/udfs
 # Copiar archivo HQL y ejecutar Hive
 sudo docker cp iris.hql hive-server:/opt/iris.hql
 sudo docker exec -it hive-server bash -c "
-# Ejecutar script HQL en Hive
-hiveserver2 &
-chmod 777 /opt/iris.hql
+# Iniciar HiveServer2
+hiveserver2 &&
+
+# Cambiar permisos del archivo HQL
+chmod 777 /opt/iris.hql &&
+
+# Ejecutar el script HQL en Hive
 hive -f /opt/iris.hql
 "
