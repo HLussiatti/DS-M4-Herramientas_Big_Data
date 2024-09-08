@@ -1,3 +1,4 @@
+#Borro el archivo si ya existe y luego hago la copia desde Docker
 sudo docker exec -it namenode bash -c "
     #Borro el archivo si existe
     hdfs dfs -rm /hbase/data/personal.csv
@@ -10,11 +11,11 @@ sudo docker exec -it namenode bash -c "
 sudo docker exec -it hbase-master bash -c "
     echo 'Borrando tablas si existen...'
     hbase shell <<EOF
-    disable 'personal'
-    drop 'personal'
-    disable 'album'
-    drop 'album'
-    EOF
+disable 'personal'
+drop 'personal'
+disable 'album'
+drop 'album'
+EOF
 "
 
 # Ejecutar comandos HBase en el contenedor hbase-master - Importante la indentación dentro del Shell

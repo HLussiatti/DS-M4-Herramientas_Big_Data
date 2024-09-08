@@ -16,13 +16,11 @@
 3. El ejercicio pide copiar los archivos que estan ubicados en Datasets dentro del contenedor "namenode":
 Este proceso se ejecuta a través del archivo Ejercicio1.sh
 
-4. Dar permisos a Ejercicio1.sh: 
+4. Dar permisos a Ejercicio1.sh y ejecutar: 
 ``` chmod u+x Ejercicio1.sh ```
-
-5. Ejercutar: 
 ``` ./Ejercicio1.sh ```
 
-6. Resultado:
+5. Resultado:
 
 ![](Ejercicio_1_HDFS.png)
 
@@ -34,19 +32,17 @@ Este proceso se ejecuta a través del archivo Ejercicio1.sh
 
 2. Modifico Paso02.hql para agregar la eliminación de la DB si existe ```DROP DATABASE IF EXITS integrador;``` y agregué un ```EXIT;``` al final para salir de HIVE.
 
-3. Dar permisos a Ejercicio1.sh: 
+3. Dar permisos a Ejercicio2.sh y ejecutar: 
 ``` chmod u+x Ejercicio2.sh ```
-
-4. Ejercutar: 
 ``` ./Ejercicio2.sh ```
 
-5. Resultado:
+4. Resultado:
 
 ![](Ejercicio_2_HDFS.png)
 
 ![](Ejercicio_2_SQL_1.png)
 
-6. PARA VERIFICAR:
+5. PARA VERIFICAR:
 ``` 
 sudo docker exec -it hive-server bash
 hive
@@ -56,30 +52,22 @@ SHOW TABLES;
 SELECT COUNT(*) FROM venta;
 ```
 
-
 ![](Ejercicio_2_SQL_2.png)
 
 
-
-
-
-
-
 # EJERCICIO 3:
-1. Ejecuto el contendor de la versión 3.
-``` sudo docker-compose -f docker-compose-v3.yml up -d ```
+1. Trabajo con la v2 del docker-compose.
 
-2. Modifico Paso03.hql para agregar la eliminación de la DB si existe ```DROP DATABASE IF EXISTS integrador2;``` y agregué un ```EXIT;``` al final para salir de HIVE. Arreglo la línea ```REPLACE(Salario,``` , elimino todo lo que hay de la tabla trip ya que es de otro ejercicios. Creo una tabla ventas_ok con Mes y Año de tabla ventas. La particiono, e inserto los registros por cada mes.
+2. Modifico Paso03.hql para agregar la eliminación de la DB si existe ```DROP DATABASE IF EXISTS integrador2;``` y agregué un ```EXIT;``` al final para salir de HIVE. Arreglo la línea ```REPLACE(Salario,``` , elimino todo lo que hay de la tabla trip ya que es de otro ejercicio. Creo una tabla ventas_ok con Mes y Año de tabla ventas. La particiono, e inserto los registros por cada mes.
 
 3. Copio los datos en data2 del HDFS.
 
-4. Dar permisos a Ejercicio3.sh: 
+4. Dar permisos a Ejercicio3.sh y ejecutar:
 ``` chmod u+x Ejercicio3.sh ```
-
-3. Ejercutar: 
 ``` ./Ejercicio3.sh ```
 
-4. Resultado:
+5. Resultado:
+
 ![](Ejercicio_3_HDFS.png)
 
 
@@ -88,30 +76,65 @@ SELECT COUNT(*) FROM venta;
 # EJERCICIO 4:
 1. Trabajo con la v2 del docker-compose.
 
-2. Dar permisos a Ejercicio4.sh: 
+2. Dar permisos a Ejercicio4.sh y ejecutar: 
 ``` chmod u+x Ejercicio4.sh ```
-
-3. Ejercutar: 
 ``` ./Ejercicio4.sh ```
 
-2. Guardo los resultados de la consulta antes de la modificación del índice (21.37 segundos).
+3. Guardo los resultados de la consulta antes de la modificación del índice (21.37 segundos).
+
 ```SELECT idsucursal, sum(precio * cantidad) FROM venta GROUP BY idsucursal;```
 
 ![](Ejercicio_4_SQL_1.png)
 
-3. Modifico el índie:
+4. Modifico el índie:
 
 ```
 CREATE INDEX index_venta_sucursal ON TABLE venta(IdSucursal) AS 'org.apache.hadoop.hive.ql.index.compact.CompactIndexHandler' WITH DEFERRED REBUILD;
 ALTER INDEX index_venta_sucursal ON venta [PARTITION partition_spec] REBUILD; 
 ```
 
-4. Verifico la modificación en los tiempos de la consulta original. Resultados  (3.461 segundos):
+5. Verifico la modificación en los tiempos de la consulta original. Resultados  (3.461 segundos):
 
 ![](Ejercicio_4_SQL_2.png)
 
 
 
+# EJERCICIO 5.1:
+1. Ejecuto el contendor de la versión 3.
+``` sudo docker-compose -f docker-compose-v3.yml up -d ```
+
+2. Dar permisos a Ejercicio5.sh y ejecutar:
+``` chmod u+x Ejercicio5_1.sh ```
+``` ./Ejercicio5_1.sh ```
+
+3. Archivo cargado en el HDFS:
+
+![](Ejercicio_5_1_HDFS_1.png)
+
+
+4. Resultado carga Manual de personal:
+
+![](Ejercicio_5_1_HBase_1.png)
+
+
+5. Resultado carga csv de personal y carga tabla album:
+
+![](Ejercicio_5_1_HBase_2.png)
+
+
+# EJERCICIO 5.2:
+1. Dar permisos a Ejercicio5.sh y ejecutar:
+``` chmod u+x Ejercicio5.sh ```
+``` ./Ejercicio5.sh ```
+
+3. Resultado carga Manual de personal:
+
+![](Ejercicio_5_HBase_1.png)
+
+
+4. Resultado carga csv de personal y carga tabla album:
+
+![](Ejercicio_5_HBase_2.png)
 
 
 
