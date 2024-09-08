@@ -31,13 +31,20 @@ mongoexport --db dataprueba --collection iris_csv --fields sepal_length,sepal_wi
 mongoexport --db dataprueba --collection iris_json --fields sepal_length,sepal_width,petal_length,petal_width,species --type=json --out /data/iris_export.json
 "
 
+# Primero creo el directorio para poder ubicar el .jar
+sudo docker exec -it namenode bash -c "
+cd tmp
+mkdir udfs
+exit
+"
+
 # Copio los JARs que están en la carpeta Mongo a Hive Server
 sudo docker cp Mongo/mongo-hadoop-hive-2.0.2.jar hive-server:/opt/hive/lib/mongo-hadoop-hive-2.0.2.jar
 sudo docker cp Mongo/mongo-hadoop-core-2.0.2.jar hive-server:/opt/hive/lib/mongo-hadoop-core-2.0.2.jar
 sudo docker cp Mongo/mongo-hadoop-spark-2.0.2.jar hive-server:/opt/hive/lib/mongo-hadoop-spark-2.0.2.jar
 sudo docker cp Mongo/mongo-java-driver-3.12.11.jar hive-server:/opt/hive/lib/mongo-java-driver-3.12.11.jar
 # Esta línea se agrega porque el script tira error de no encontrar el .jar en la ubicación esperada.
-sudo docker cp Mongo/mongo-java-driver-3.12.11.jar namenode:/home/tmp/udfs/mongo-java-driver-3.12.11.jar
+sudo docker cp Mongo/mongo-java-driver-3.12.11.jar namenode:/tmp/udfs/mongo-java-driver-3.12.11.jar
 
 
 # Copiar archivo HQL y ejecutar Hive
