@@ -127,6 +127,10 @@ ALTER INDEX index_venta_sucursal ON venta [PARTITION partition_spec] REBUILD;
 ``` chmod u+x Ejercicio5.sh ```
 ``` ./Ejercicio5.sh ```
 
+2. Hay que modificar la idrección en iris.hql.
+
+3. Tengo que modificar la versión de mongo del contenedor.
+
 3. Resultado carga Manual de personal:
 
 ![](Ejercicio_5_HBase_1.png)
