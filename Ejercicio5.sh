@@ -2,38 +2,22 @@ sudo docker exec -it namenode bash -c "
     #Borro el archivo si existe
     hdfs dfs -rm /hbase/data/personal.csv
     #Copio el archivo desde el Docker
-    hdfs dfs -put /Datasets/personal.csv /hbase/data/personal.csv
-    echo 'Archivos .csv copiados a HDFS en /hbase/data//'
+    hdfs dfs -put /home/Datasets/personal.csv /hbase/data/personal.csv
+    echo 'Archivos .csv copiados a HDFS en /hbase/data/'
 "
 
 # Para volver a correr y modificar las tablas, las borro primero si existen.
 sudo docker exec -it hbase-master bash -c "
-    echo 'Verifico si existe personal y album en HBase...'
+    echo 'Borrando tablas si existen...'
     hbase shell <<EOF
-    list | grep 'personal'
-    if [ \$? -eq 0 ]; then
-        echo 'Eliminando personal...'
-        disable 'personal'
-        drop 'personal'
-    else
-        echo 'Table personal does not exist.'
-    fi
-
-    list | grep 'album'
-    if [ \$? -eq 0 ]; then
-        echo 'Eliminando album...'
-        disable 'album'
-        drop 'album'
-    else
-        echo 'Table album does not exist.'
-    fi
-EOF
+    disable 'personal'
+    drop 'personal'
+    disable 'album'
+    drop 'album'
+    EOF
 "
 
-
-
 # Ejecutar comandos HBase en el contenedor hbase-master - Importante la indentación dentro del Shell
-
 # Creo una tabla personal (ID 1 a 4)
 sudo docker exec -it hbase-master bash -c "
     echo 'Creando la tabla persona en HBase y se coloca información manualmente, resultado: personal 4...'
@@ -62,7 +46,7 @@ sudo docker exec -it hbase-master bash -c "
 
 #Verifico la carga de los datos del csv
 sudo docker exec -it hbase-master bash -c "
-    echo 'Creando la tabla persona en HBase y se coloca información manualmente, resultado: personal 8...'
+    echo 'Creando la tabla persona en HBase y se coloca información del csv, resultado: personal 8...'
     hbase shell <<EOF
 list 'personal'
 get 'personal','8'
