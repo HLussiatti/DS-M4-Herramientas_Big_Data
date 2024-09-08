@@ -16,10 +16,9 @@ sudo docker exec -it mongodb bash -c "
 mongosh --eval '
 db.getSiblingDB(\"dataprueba\").dropDatabase();
 '
-
 # Importar datos en MongoDB
-mongoimport /data/iris.csv --type csv --headerline -d dataprueba -c iris_csv &&
-mongoimport --db dataprueba --collection iris_json --file /data/iris.json --jsonArray &&
+mongoimport /data/iris.csv --type csv --headerline -d dataprueba -c iris_csv
+mongoimport --db dataprueba --collection iris_json --file /data/iris.json --jsonArray 
 
 # Comprobar la importación de datos
 mongosh --eval '
@@ -27,10 +26,10 @@ use dataprueba;
 show collections();
 db.iris_csv.find().pretty();
 db.iris_json.find().pretty();
-' &&
+'
 
 # Exportar los datos de MongoDB
-mongoexport --db dataprueba --collection iris_csv --fields sepal_length,sepal_width,petal_length,petal_width,species --type=csv --out /data/iris_export.csv &&
+mongoexport --db dataprueba --collection iris_csv --fields sepal_length,sepal_width,petal_length,petal_width,species --type=csv --out /data/iris_export.csv 
 mongoexport --db dataprueba --collection iris_json --fields sepal_length,sepal_width,petal_length,petal_width,species --type=json --out /data/iris_export.json
 "
 
