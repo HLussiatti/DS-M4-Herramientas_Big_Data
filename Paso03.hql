@@ -313,4 +313,235 @@ SELECT
 	Departamento
 FROM integrador.proveedor;
 	
-EXIT;
+
+--particiones
+
+
+CREATE TABLE  venta_ok AS SELECT 	
+	v.*, 
+	CASE WHEN v.Fecha IS NULL THEN year(v.Fecha_Entrega) ELSE year(v.Fecha) END AS `Anio`,	
+	CASE WHEN v.Fecha IS NULL THEN month(v.Fecha_Entrega) ELSE month(v.Fecha) END AS `Mes` 
+FROM venta v;
+
+
+DROP TABLE IF EXISTS venta_part;
+CREATE EXTERNAL TABLE IF NOT EXISTS venta_part (
+  IdVenta             INTEGER,
+  Fecha               DATE,
+  Anio				  INTEGER,
+  Fecha_Entrega       DATE,
+  IdCanal             INTEGER, 
+  IdCliente           INTEGER, 
+  IdSucursal          INTEGER,
+  IdEmpleado          INTEGER,
+  IdProducto          INTEGER,
+  Precio              FLOAT,
+  Cantidad            INTEGER
+)
+PARTITIONED BY (Mes INT)
+LOCATION '/data2/ventas_part/';
+
+
+INSERT INTO TABLE venta_part
+PARTITION(Mes=1)
+SELECT 
+  IdVenta,
+  Fecha,
+  Anio,
+  Fecha_Entrega,
+  IdCanal, 
+  IdCliente, 
+  IdSucursal,
+  IdEmpleado,
+  IdProducto,
+  Precio,
+  Cantidad
+FROM venta_ok
+WHERE Mes = 1;
+
+INSERT INTO TABLE venta_part
+PARTITION(Mes=2)
+SELECT 
+  IdVenta,
+  Fecha,
+  Anio,
+  Fecha_Entrega,
+  IdCanal, 
+  IdCliente, 
+  IdSucursal,
+  IdEmpleado,
+  IdProducto,
+  Precio,
+  Cantidad
+FROM venta_ok
+WHERE Mes = 2;
+
+INSERT INTO TABLE venta_part
+PARTITION(Mes=3)
+SELECT 
+  IdVenta,
+  Fecha,
+  Anio,
+  Fecha_Entrega,
+  IdCanal, 
+  IdCliente, 
+  IdSucursal,
+  IdEmpleado,
+  IdProducto,
+  Precio,
+  Cantidad
+FROM venta_ok
+WHERE Mes = 3;
+
+INSERT INTO TABLE venta_part
+PARTITION(Mes=4)
+SELECT 
+  IdVenta,
+  Fecha,
+  Anio,
+  Fecha_Entrega,
+  IdCanal, 
+  IdCliente, 
+  IdSucursal,
+  IdEmpleado,
+  IdProducto,
+  Precio,
+  Cantidad
+FROM venta_ok
+WHERE Mes = 4;
+
+INSERT INTO TABLE venta_part
+PARTITION(Mes=5)
+SELECT 
+  IdVenta,
+  Fecha,
+  Anio,
+  Fecha_Entrega,
+  IdCanal, 
+  IdCliente, 
+  IdSucursal,
+  IdEmpleado,
+  IdProducto,
+  Precio,
+  Cantidad
+FROM venta_ok
+WHERE Mes = 5;
+
+INSERT INTO TABLE venta_part
+PARTITION(Mes=6)
+SELECT 
+  IdVenta,
+  Fecha,
+  Anio,
+  Fecha_Entrega,
+  IdCanal, 
+  IdCliente, 
+  IdSucursal,
+  IdEmpleado,
+  IdProducto,
+  Precio,
+  Cantidad
+FROM venta_ok
+WHERE Mes = 6;
+
+INSERT INTO TABLE venta_part
+PARTITION(Mes=7)
+SELECT 
+  IdVenta,
+  Fecha,
+  Anio,
+  Fecha_Entrega,
+  IdCanal, 
+  IdCliente, 
+  IdSucursal,
+  IdEmpleado,
+  IdProducto,
+  Precio,
+  Cantidad
+FROM venta_ok
+WHERE Mes = 7;
+
+INSERT INTO TABLE venta_part
+PARTITION(Mes=8)
+SELECT 
+  IdVenta,
+  Fecha,
+  Anio,
+  Fecha_Entrega,
+  IdCanal, 
+  IdCliente, 
+  IdSucursal,
+  IdEmpleado,
+  IdProducto,
+  Precio,
+  Cantidad
+FROM venta_ok
+WHERE Mes = 8;
+
+INSERT INTO TABLE venta_part
+PARTITION(Mes=9)
+SELECT 
+  IdVenta,
+  Fecha,
+  Anio,
+  Fecha_Entrega,
+  IdCanal, 
+  IdCliente, 
+  IdSucursal,
+  IdEmpleado,
+  IdProducto,
+  Precio,
+  Cantidad
+FROM venta_ok
+WHERE Mes = 9;
+
+INSERT INTO TABLE venta_part
+PARTITION(Mes=10)
+SELECT 
+  IdVenta,
+  Fecha,
+  Anio,
+  Fecha_Entrega,
+  IdCanal, 
+  IdCliente, 
+  IdSucursal,
+  IdEmpleado,
+  IdProducto,
+  Precio,
+  Cantidad
+FROM venta_ok
+WHERE Mes = 10;
+
+INSERT INTO TABLE venta_part
+PARTITION(Mes=11)
+SELECT 
+  IdVenta,
+  Fecha,
+  Anio,
+  Fecha_Entrega,
+  IdCanal, 
+  IdCliente, 
+  IdSucursal,
+  IdEmpleado,
+  IdProducto,
+  Precio,
+  Cantidad
+FROM venta_ok
+WHERE Mes = 11;
+
+INSERT INTO TABLE venta_part
+PARTITION(Mes=12)
+SELECT 
+  IdVenta,
+  Fecha,
+  Anio,
+  Fecha_Entrega,
+  IdCanal, 
+  IdCliente, 
+  IdSucursal,
+  IdEmpleado,
+  IdProducto,
+  Precio,
+  Cantidad
+FROM venta_ok
+WHERE Mes = 12;

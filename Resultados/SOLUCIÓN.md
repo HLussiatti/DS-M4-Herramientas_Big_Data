@@ -69,9 +69,9 @@ SELECT COUNT(*) FROM venta;
 1. Ejecuto el contendor de la versión 3.
 ``` sudo docker-compose -f docker-compose-v3.yml up -d ```
 
-2. Modifico Paso03.hql para agregar la eliminación de la DB si existe ```DROP DATABASE IF EXISTS integrador2;``` y agregué un ```EXIT;``` al final para salir de HIVE. Arreglo la línea ```REPLACE(Salario,``` , Modifico el Paso03.hql (al final) para la consulta de agregación x12.
+2. Modifico Paso03.hql para agregar la eliminación de la DB si existe ```DROP DATABASE IF EXISTS integrador2;``` y agregué un ```EXIT;``` al final para salir de HIVE. Arreglo la línea ```REPLACE(Salario,``` , elimino todo lo que hay de la tabla trip ya que es de otro ejercicios.
 
-3. Copio los datos en data2 del HDFS.
+3. Copio los datos en data2 del HDFS y creo una carpeta /data2/venta/ventas_part para almacenar la partición de ventas.
 
 4. Dar permisos a Ejercicio3.sh: 
 ``` chmod u+x Ejercicio3.sh ```
