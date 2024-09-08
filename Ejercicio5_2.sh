@@ -6,18 +6,18 @@ exit
 "
 
 # Copio archivos al contenedor MongoDB
-sudo docker cp /home/Datasets/iris.csv mongodb:/data/iris.csv
-sudo docker cp /home/Datasets/iris.json mongodb:/data/iris.json
+sudo docker cp Datasets/iris.csv mongodb:/data/iris.csv
+sudo docker cp Datasets/iris.json mongodb:/data/iris.json
 
 # Ejecutar un bash shell dentro del contenedor MongoDB
-sudo docker exec -it mongodb bash << 'EOF'
+sudo docker exec -it mongodb bash -c "<<EOF
 
 # Importar datos en MongoDB
 mongoimport /data/iris.csv --type csv --headerline -d dataprueba -c iris_csv
 mongoimport --db dataprueba --collection iris_json --file /data/iris.json --jsonArray
 
 # Comprobar la importación de datos
-mongosh << 'EOF'
+mongosh << EOF
 use dataprueba
 show collections
 db.iris_csv.find()
@@ -36,11 +36,11 @@ sudo docker cp /home/Mongo/mongo-java-driver-3.12.11.jar hive-server:/opt/hive/l
 
 # Copiar archivo HQL y ejecutar Hive
 sudo docker cp iris.hql hive-server:/opt/iris.hql
-sudo docker exec -it hive-server bash << 'EOF'
+sudo docker exec -it hive-server bash << EOF
 # Ejecutar script HQL en Hive
 hiveserver2
 chmod 777 /opt/iris.hql
 hive -f /opt/iris.hql
 EOF
 
-EOF
+EOF"
