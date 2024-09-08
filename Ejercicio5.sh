@@ -1,5 +1,5 @@
 sudo docker exec -it namenode bash -c "
-	hdfs dfs -mv /data/personal.csv /hbase/data/personal.csv
+	hdfs dfs -put /home/Datasets/personal.csv /hbase/data/personal.csv 
     "
 
 sudo docker exec -it hbase-master hbase bash -c " 
